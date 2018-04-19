@@ -8,4 +8,9 @@ node {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
+   stage('Deploy'){
+ 		withAWS(credentials: 'awswwangcredential', region: 'us-east2') {
+            
+		}  
+   }
 }
