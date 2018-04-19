@@ -9,8 +9,6 @@ node {
       archive 'target/*.jar'
    }
    stage('Deploy'){
- 		withAWS(credentials: 'awswwangcredential', region: 'us-east2') {
-            
-		}  
+ 		sh "aws ec2 describe-security-groups"
    }
 }
