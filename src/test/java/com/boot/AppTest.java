@@ -1,9 +1,12 @@
 package com.boot;
 
+import static org.junit.Assert.assertEquals;
+
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.boot.controller.HomeController;
-import static org.junit.Assert.assertEquals;
 
 public class AppTest 
 {
@@ -13,6 +16,6 @@ public class AppTest
     {
 		HomeController hc = new HomeController();
 		String result = hc.home();
-		assertEquals(result,"my first spring boot app.");
+		Assert.assertThat(result, CoreMatchers.containsString("Finally I can have my jenkins"));
     }
 }
