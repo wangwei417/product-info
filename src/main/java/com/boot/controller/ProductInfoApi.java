@@ -1,6 +1,7 @@
 package com.boot.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,13 +28,13 @@ public class ProductInfoApi {
 	
 	@RequestMapping(value = "productinfo", method = RequestMethod.POST)
 	public ProductInfo create(@RequestBody ProductInfo productinfo) {
-		return productinfoRepo.saveAndFlush(productinfo);
+		return productinfoRepo.save(productinfo);
 	}
 	
 	@RequestMapping(value = "productinfo/{id}", method=RequestMethod.GET)
-	public ProductInfo getById(@PathVariable Long id)
+	public Optional<ProductInfo> getById(@PathVariable Long id)
 	{
-		return productinfoRepo.getOne(id);
+		return  productinfoRepo.findById(id);
 	}
 }
 

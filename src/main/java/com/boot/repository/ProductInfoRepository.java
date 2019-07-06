@@ -1,9 +1,11 @@
 package com.boot.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.boot.model.ProductInfo;
 
-public interface ProductInfoRepository extends JpaRepository<ProductInfo,Long>{
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface ProductInfoRepository extends MongoRepository<ProductInfo,Long>{
+    //ProductInfo saveAndFlush(ProductInfo productInfo);
+    
 
 }
