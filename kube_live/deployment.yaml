@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: product-info
+  name: product-info
+  namespace: default
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: product-info
+    spec:
+      containers:
+      - name: product-info
+        image: docker.io/wangwei417/test:latest
+          #image: docker.teledev.io/patient:{{FILL_CONTAINER_VERSION}}
+        resources:
+          requests:
+              cpu: 50m
+              memory: 100Mi
+          limits:
+              cpu: 150m
+              memory: 500Mi
+        ports:
+            - containerPort: 443
+              protocol: TCP
+        imagePullPolicy: IfNotPresent

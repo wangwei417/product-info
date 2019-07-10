@@ -36,11 +36,11 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-	<dependency>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-test</artifactId>
-      	<scope>test</scope>
-	</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
@@ -53,6 +53,29 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.9</version>
+				<executions>
+					<execution>
+					<id>default</id>
+					<goals>
+						<goal>build</goal>
+						<goal>push</goal>
+					</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<username>wangwei417</username>
+					<password>normal@2019</password>
+					<repository>wangwei417/test</repository>
+					<buildArgs>
+						<JAR_File>target/{project.build.finalName}.jar</JAR_File>
+					</buildArgs>
+				</configuration>				
+
+			</plugin>		
 		</plugins>
 	</build>
 
