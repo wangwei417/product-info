@@ -26,4 +26,7 @@ spec:
         ports:
             - containerPort: 443
               protocol: TCP
+        envFrom:
+            - configMapRef:
+                name: spring-kubernetes-example
         imagePullPolicy: IfNotPresent
